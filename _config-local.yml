@@ -55,3 +55,27 @@ exclude: ['README.md', 'LICENSE', 'prep-tags-for-git.sh']
 include: [.htaccess]
 
 destination: public
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      share: true
+      comments: true
+  -
+    scope:
+      path: ""
+      type: "drafts"
+    values:
+      layout: "post"
+      share: false
+      comments: false
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"

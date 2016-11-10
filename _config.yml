@@ -50,3 +50,27 @@ kramdown:
   hard_wrap: true
 
 exclude: ['README.md', 'LICENSE', '.htaccess', 'prep-tags-for-git.sh']
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      share: true
+      comments: true
+  -
+    scope:
+      path: ""
+      type: "drafts"
+    values:
+      layout: "post"
+      share: false
+      comments: false
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
