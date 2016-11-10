@@ -145,3 +145,8 @@ sh prep-tags-for-git.sh
 
 If you are using Windows I recommend using Git Bash from [git for windows](https://git-for-windows.github.io/).
 This with will enable you to utilize the script I created for handling the tag pages.
+
+## Sources
+
+[Jekyll Installation](http://jekyllrb.com/docs/installation/)
+[Run Jekyll on Windows](http://jekyll-windows.juthilo.com/)
