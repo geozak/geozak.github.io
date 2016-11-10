@@ -7,15 +7,15 @@ description: Software Developer
 url: https://geozak.github.io
 
 # For a project page here should be a project name. Otherwise (for user's/organizaion's page leave it empty)
-baseurl: '/blog'
+baseurl: ''
 
 share:
-  facebook: false
-  twitter: false
-  gplus: false
-  linkedin: false
-  pinterest: false
-  email: false
+  facebook: true
+  twitter: true
+  gplus: true
+  linkedin: true
+  pinterest: true
+  email: true
 
 social:
   github: geozak
@@ -23,8 +23,7 @@ social:
   linkedin: 'zakary-stone-84925048'
   instagram: 
   lastfm: 
-  #rss: feed.xml
-  rss:
+  rss: feed.xml
 
 # Google Analytics key, leave blank to ignore
 google_analytics_key:
@@ -35,8 +34,8 @@ yandex_metrica:
 # Set this to your disqus shortname to enable comments. Note that the 'comments'
 # setting below must also be true. Individual posts can override 'comments' to
 # disable on a post-by-post basis
-disqus: geozakblog
-comments: false
+disqus: geozak.github.io
+comments: true
 
 permalink: /:year/:month/:title
 
