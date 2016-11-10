@@ -36,7 +36,7 @@ yandex_metrica:
 # setting below must also be true. Individual posts can override 'comments' to
 # disable on a post-by-post basis
 disqus: geozak-github-io
-comments: true
+comments: false
 
 permalink: /:year/:month/:title
 
@@ -64,7 +64,7 @@ defaults:
     values:
       layout: "post"
       share: true
-      comments: true
+      comments: false
   -
     scope:
       path: ""

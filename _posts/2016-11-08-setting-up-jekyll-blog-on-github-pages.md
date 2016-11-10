@@ -24,7 +24,7 @@ This is a (hopefuly) simple guide to getting setup building a blog.
 
 This guide shows you how to setup [GitHub Pages](https://pages.github.com/) using [Jykell](https://jekyllrb.com) and theme that I [modified](https://github.com/geozak/jekyll-clean-dark).
 
-This guide won't go into detail about git or github work. It is more of a quick and dirty instructional to get started with Jykell on GitHub Pages.
+This guide won't go into detail about how git or github work. It is more of a quick and dirty instructional to get started with Jykell on GitHub Pages.
 
 ## Setting Up GitHub Pages
 
