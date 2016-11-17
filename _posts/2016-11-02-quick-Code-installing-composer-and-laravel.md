@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Quick Code: Installing Composer and Laravel"
-date: 2016-11-02 23:55:00
-category: quick-code
+date: 2016-11-16 15:20:45
+category: quick-code02
 tags: php composer laravel
 description: Code to get composer and laravel up and running
 ---

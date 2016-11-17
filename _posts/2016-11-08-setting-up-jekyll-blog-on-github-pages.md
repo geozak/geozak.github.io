@@ -17,6 +17,7 @@ description: Guide to setup Jekyll for GitHub Pages and local development
 4. [Including a Theme](#including-a-theme)
 5. [Tags](#tags)
 6. [Development Tips](#development-tips)
+7. [Sources](#sources)
 
 ## Introduction
 
