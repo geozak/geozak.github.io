@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Quick Code: Using Bootstrap toggleable tabs and markdown interpretation"
-date: 2016-11-02 23:55:00
+date: 2016-11-16 17:50:48
 category: quick-code
 tags: html bootstrap markdown jekyll
 description: Code to use Bootstrap's togglable tabs and have content interpreted as markdown.
