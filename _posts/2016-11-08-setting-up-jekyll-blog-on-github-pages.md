@@ -58,6 +58,20 @@ After creating the repository, initialize and link it to a local development rep
 sudo apt-get install ruby-dev
 sudo gem install jekyll
 ```
+
+### Install Jekyll on older Linux Distros
+
+(Updated 2016-11-23)<br>
+If the version of ruby in your distro's repository is not be new enough to install jekyll, use these commands.
+
+```
+sudo apt-get purge ruby
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+\curl -sSL https://get.rvm.io | bash -s stable --ruby
+source ~/.rvm/scripts/rvm
+gem install bundler
+gem install jekyll
+```
 </div> <!-- This close tag must be left aligned. -->
         </div> <!-- close linux -->
         <div role="tabpanel" class="tab-pane" id="windows">
@@ -151,3 +165,4 @@ This with will enable you to utilize the script I created for handling the tag p
 
 [Jekyll Installation](http://jekyllrb.com/docs/installation/)
 [Run Jekyll on Windows](http://jekyll-windows.juthilo.com/)
+[RVM: Ruby Version Manager](https://rvm.io/rvm/install)

@@ -23,10 +23,14 @@ For many web developers creating new local sites for development is hassle of ha
 
 This guide will help you setup your system once so that the only thing you'll need to to create a site is create a directory for the site and your ready to go.
 
+Note: This guide will be setting up to handle "*.dev" domains. If you want to use a different domain change all instances of "dev" to the domain you choose.
+
 ## Configuring Local DNS
 
 The first step in this process is to dynamically direct development domains to your system.
 This will setup direct every domain with the Top-level domain (TLD) 'dev' to the localhost (127.0.0.1). The TLD 'dev' is not an official TLD so there is no worry conflicting with existing domain.
+
+### Installing DNS server
 
 This guide is for linux, more specifically debian based distros, but if you are working on windows checkout [Acrylic DNS Proxy](http://mayakron.altervista.org/wikibase/show.php?id=AcrylicHome). I have not yet used it myself but it has been recommended to me and is still maintained including versions for Windows 10.
 
@@ -35,21 +39,61 @@ Generally when creating domains for development, temporary or not, you have to e
 ```
 sudo apt-get install bind9
 //sudo apt-get install dnsutils bind9-doc
-sudo nano /etc/bind/named.conf.options
 ```
 
-insert the following snippet in /etc/bind/named.conf.options
+### Configuring DNS server
+
+Now we need to setup Bind to load DNS zone file. We are setting up a zone to catch all request for "*.dev"; this is indicates by naming the zone "dev".
+```
+sudo nano /etc/bind/named.conf.local
+```
+Append the following to /etc/bind/named.conf.local
+```
+zone "dev" {
+    type master;
+    file "/etc/bind/db.dev"
+};
+```
+
+### Setting up zone file
+
+We need to configure the zone file so that the DNS server knows what ip address to return for the domain and subdomains. Because this is for local development we can just copy and modify the localhost zone file. Copying the file will setup resolving the 'dev' domain and the following modification will resolve all the subdomains.
+```
+sudo cp /etc/bind/db.local /etc/bind/db.dev
+sudo nano /etc/bind/db.dev
+```
+Append the following to /etc/bind/db.dev
+```
+*       IN      CNAME   @
+```
+Optional but recommended is to edit the file description on the second line to reflect the domain you are using.
+
+### Starting the Server
+
+With this settup the server will startup whenever the system boots up however you may want to start it now for the rest this guide.
+```
+sudo /etc/init.d/bind9 start
+```
+
+### Using the DNS server
+
+Now the DNS server is setup, configured, and running but our system is not using it to resolve domain addresses.
+
+Most guides for changing the DNS servers your system use instruct you to edit the `/etc/resolv.conf` file. While this is the file linux uses to determine what DNS servers, many desktop systems use `resolvconf` to generate the file which overwrites this it frequently especially when connecting to WiFi networks. So in order to make `resolvconf` include our changes we need to edit one of the files in `/etc/resolvconf/resolv.conf.d/`; I prefer to use the `head` file.
+
+
+
+To use your local DNS server we need to add the localhost (127.0.0.1) nameserver to our resolvconf file. Optionally I like to add the google DNS servers (8.8.8.8 and 8.8.4.4) here as well so they take higher priority than teh nameservers provided by the WiFi DHCP server.
 
 ```
-...
-
-        forwarders {
-                8.8.8.8;
-                8.8.4.4;
-        };
-
-...
-
+sudo nano /etc/resolvconf/resolv.conf.d/head
+# or sudo nano /etc/resolv.conf
+```
+Make the file look like:
+```
+nameserver 127.0.0.1
+nameserver 8.8.8.8
+nameserver 8.8.4.4
 ```
 
 ## Setting up Dynamic VHOSTs
@@ -65,6 +109,7 @@ insert the following snippet in /etc/bind/named.conf.options
 
 
 ## The code, the whole code, and nothing but the code
+
 
 ## Sources
 

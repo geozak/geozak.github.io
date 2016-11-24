@@ -1,0 +1,17 @@
+{% if page.share == true %}
+  {% if site.share.facebook %}
+    <meta property="og:url"           content="{{ site.url | append: page.url}}" />
+    <meta property="og:type"          content="article" />
+    {% if page.title %}
+      <meta property="og:title"         content="{{ page.title }}" />
+    {% endif %}
+    {% if page.description %}
+      <meta property="og:description"   content="{{ page.description }}" />
+    {% endif %}
+    {% if page.imageurl %}
+      <meta property="og:image"         content="{{ site.url | append: page.imageurl}}" />
+    {% else %}
+      <!-- <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" /> -->
+    {% endif %}
+  {% endif %}
+{% endif %}
